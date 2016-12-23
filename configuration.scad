@@ -1,5 +1,5 @@
 // Increase this if your slicer or printer make holes too tight.
-extra_radius = 0.1;
+extra_radius = 0.0;
 
 // OD = outside diameter, corner to corner.
 m3_nut_od = 6.1;
@@ -25,3 +25,15 @@ extrusion = 15;
 // Placement for the NEMA17 stepper motors.
 motor_offset = 44;
 motor_length = 47;
+motor_z_offset = 30;
+
+// My addtions
+rod_len = 380; // length of horizontal rods
+base_height = 7; //measured in multiples of extrusion = 15mm
+vertical_h = 800; // length of vertical rods
+
+//ad hoc formula to get radius from horizontal length
+// radius is geometric center to center of vertical rods 
+r = (rod_len + 100*sin(30) + 2) / (2*cos(30)) - 17;
+//r + 17 is the radius of the triangle defined by the inner edges of of the horizontal rods
+//where the radius of a an equilateral triangle is the dist from center to the center of one of the edges.
