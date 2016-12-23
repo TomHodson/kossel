@@ -8,8 +8,8 @@ module frame_top() {
   difference() {
     vertex(extrusion, idler_offset=3, idler_space=12.5);
     // M3 bolt to support idler bearings.
-    translate([0, 65, 0]) rotate([90, 0, 0]) #
-      cylinder(r=m3_radius, h=55);
+    translate([0, 65, 0]) rotate([90, 0, 0])
+      cylinder(r=6/2, h=55);
     // Vertical belt tensioner.
     translate([0, 10, 0]) rotate([18, 0, 0]) union() {
       cylinder(r=m3_wide_radius, h=30, center=true);
