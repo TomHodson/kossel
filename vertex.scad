@@ -28,8 +28,8 @@ module screw_socket_cone() {
 module vertex(height, idler_offset, idler_space) {
   union() {
     // Pads to improve print bed adhesion for slim ends.
-    translate([-37.5, 52.2, -height/2]) cylinder(r=8, h=0.5);
-    translate([37.5, 52.2, -height/2]) cylinder(r=8, h=0.5);
+    //translate([-37.5, 52.2, -height/2]) cylinder(r=8, h=0.5);
+    //translate([37.5, 52.2, -height/2]) cylinder(r=8, h=0.5);
     difference() {
       union() {
         intersection() {
@@ -73,7 +73,8 @@ module vertex(height, idler_offset, idler_space) {
         cylinder(r=roundness, h=1, center=true);
       }
       extrusion_cutout(height+10, 2*extra_radius);
-      for (z = [0:30:height]) {
+      //for (z = [0:30:height]) {
+      for (z = [0,(height - 15) ]) {
         translate([0, -7.5-extra_radius, z+7.5-height/2]) rotate([90, 0, 0])
           screw_socket_cone();
         for (a = [-1, 1]) {
@@ -97,4 +98,4 @@ module vertex(height, idler_offset, idler_space) {
   }
 }
 
-translate([0, 0, 7.5]) vertex(15, idler_offset=0, idler_space=10);
+translate([0, 0, 7.5]) vertex(15*6, idler_offset=0, idler_space=100);
